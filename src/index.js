@@ -1,17 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+import StudentComponent from './components/login/student';
+import TeacherComponent from './components/login/teacher';
+// import DashboardComponent from './components/dashboard/dashboard';
+
+
+const routing = (
+    <Router>
+        
+        <Switch>
+            <Route path="/" exact component={StudentComponent} />
+            <Route path="/" component={TeacherComponent} />
+            {/* <Route path="/dashboard" component={DashboardComponent} /> */}
+        </Switch>
+    </Router>
+)
+
+ReactDOM.render( routing, document.getElementById('root'));
